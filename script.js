@@ -18,45 +18,32 @@ start.addEventListener('click', e => {
             card.querySelector("h1").textContent = nums[i];
             place.appendChild(card);
         }
-        time()
         game()
+        time()
     }
     
 })
 function game() {
     let temp;
-    let mem = -1
-    let is = true;
+    let mem = -1;
     let count = 0;
-    let time = [null, null]
         document.querySelectorAll(".up").forEach(e => {
             e.addEventListener('click', event1);
             function event1() {
                 if (count < 2) {
                 count++;
                 e.classList.remove("inv");
-                // time[count] = setTimeout(addInv, 3000);
-                function addInv() {
-                    if(is) {
-                        e.classList.add("inv");
-                        mem = -1;
-                        count = 0;
-                        return;
-                    }
-                    clearTimeout(time[0]);
-                    clearTimeout(time[1]);
-                    is = true;
-                }
+                e.parentNode.classList.toggle("trns");
+
                 }
             }
         })
     
     document.querySelector('body').addEventListener('click', e =>{
-        if(find(e.target.classList, "up") && mem < 0) {
+        if(find(e.target.classList, "up") && count == 1) {
             mem = parseInt(e.target.parentNode.querySelector('h1').textContent);
             temp = e.target;
         } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.querySelector('h1').textContent) == mem && count <= 2) {
-            is = false;
             e.target.remove();
             temp.remove();
             count = 0;   
@@ -66,9 +53,12 @@ function game() {
         }
         function add() {
             e.target.classList.add("inv");
+            e.target.parentNode.classList.toggle("trns");
+            temp.parentNode.classList.toggle("trns");
             temp.classList.add("inv")    
             count = 0;   
             mem = -1;
+            temp = "";
         }
     })
     
@@ -76,7 +66,7 @@ function game() {
 function time() {
     const timer = document.getElementById("time");
     timer.classList.remove("invs");
-    let time = count.value * 20;
+    let time = count.value * 10;
     timer.textContent = `Времени осталось: ${time}с`
     const stop_game = setInterval(isStop, 100);
     const stopp = setInterval(set, 1000);
@@ -85,7 +75,10 @@ function time() {
         timer.textContent = `Времени осталось: ${time}с`
         if (time <= 0) {
             clearInterval(stopp);
+            clearInterval(stop_game);
             alert("Время вышло!");
+            place.remove()
+            timer.classList.add("invs");
         }
     }
     function isStop() {
@@ -94,6 +87,8 @@ function time() {
             clearInterval(stop_game);
             clearInterval(stopp);
             alert("Поздравляю, вы прошли игру");
+            place.remove()
+            timer.classList.add("invs");
         }
     }
 }
@@ -116,16 +111,3 @@ function find(arr, value) {
     }
     return false;
 }
-/*j => {
-            j.target.classList.remove("inv");
-            setTimeout(addInv, 3000);
-            function addInv() {
-                if(is && temp) {
-                    j.target.classList.add("inv");
-                    first = -1;
-                    return;
-                }
-                is = true;
-                temp = true;
-            }
-        })*/

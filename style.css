@@ -18,19 +18,24 @@
     height: 300px;
     position: relative;
     box-shadow: 0 0 10px 2px;
+    border-radius: 50px;
     cursor: pointer;
 }
 .inv {
-    background-color: rgba(0, 255, 0, 0.1);
+    background-color: purple;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    border-radius: 50px;
 }
 .time {
     text-align: center;
 }
 .invs {
     display: none;
+}
+body {
+    background-color:rgba(255, 215, 0, 0.5);
 }
