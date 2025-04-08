@@ -4,28 +4,28 @@ const temp = document.getElementById("temp_card");
 const place = document.getElementById("cards");
 let nums = [];
 start.addEventListener('click', e => {
-    for (let i = 0; i < count.value; i++) {
+    let value = parseInt(count.value);
+    for (let i = 0; i < value; i++) {
         nums.push(i);
     }
     nums.forEach(e => {
         nums.push(e);
     });
     nums = shuffle(nums);
-    if(typeof count.value !== "number" && count.value <= 1 && count.value > 20) {
-        count.value = "";
-        count.placeholder = "ВВЕДИТЕ ЧИСЛО!"
-    } else {
-        for (let i = 0; i < count.value * 2; i++) {
+    if(typeof value == "number" && value >= 1 && value <= 20) {
+        for (let i = 0; i < value * 2; i++) {
             card = temp.content.cloneNode(true);
             card.querySelector("h1").textContent = nums[i];
             place.appendChild(card);
         }
+        time()
+        game()
     }
-    time()
-    game()
+    
 })
 function game() {
-    let first = -1
+    let temp;
+    let mem = -1
     let is = true;
     let count = 0;
     let time = [null, null]
@@ -35,11 +35,11 @@ function game() {
                 if (count < 2) {
                 count++;
                 e.classList.remove("inv");
-                time[count] = setTimeout(addInv, 3000);
+                // time[count] = setTimeout(addInv, 3000);
                 function addInv() {
                     if(is) {
                         e.classList.add("inv");
-                        first = -1;
+                        mem = -1;
                         count = 0;
                         return;
                     }
@@ -52,27 +52,40 @@ function game() {
         })
     
     document.querySelector('body').addEventListener('click', e =>{
-        if(find(e.target.classList, "up") && first < 0) {
-            first = parseInt(e.target.parentNode.querySelector('h1').textContent);
-        } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.querySelector('h1').textContent) == first && count <= 2) {
+        if(find(e.target.classList, "up") && mem < 0) {
+            mem = parseInt(e.target.parentNode.querySelector('h1').textContent);
+            temp = e.target;
+        } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.querySelector('h1').textContent) == mem && count <= 2) {
             is = false;
             e.target.remove();
-        } 
+            temp.remove();
+            count = 0;   
+            mem = -1;
+        } else if (find(e.target.classList, "up")) {
+            setTimeout(add, 2000);
+        }
+        function add() {
+            e.target.classList.add("inv");
+            temp.classList.add("inv")    
+            count = 0;   
+            mem = -1;
+        }
     })
     
 }
 function time() {
-    let time = 6000;
     const timer = document.getElementById("time");
     timer.classList.remove("invs");
+    let time = count.value * 20;
+    timer.textContent = `Времени осталось: ${time}с`
     const stop_game = setInterval(isStop, 100);
     const stopp = setInterval(set, 1000);
     function set() {
         time--;
         timer.textContent = `Времени осталось: ${time}с`
-        if (time < 0) {
+        if (time <= 0) {
             clearInterval(stopp);
-            alert("")
+            alert("Время вышло!");
         }
     }
     function isStop() {
