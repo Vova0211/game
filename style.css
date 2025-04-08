@@ -1,0 +1,36 @@
+.cards {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 300px;
+    position: relative;
+    box-shadow: 0 0 10px 2px;
+    cursor: pointer;
+}
+.inv {
+    background-color: rgba(0, 255, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.time {
+    text-align: center;
+}
+.invs {
+    display: none;
+}

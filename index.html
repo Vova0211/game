@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="start_game">
+        <input type="number" placeholder="Выберите колво пар" name="" id="count">
+        <button type="button" id="start">Начать</button>
+        <p id="time" class="time invs">Времени осталось: 60с</p>
+    </div>
+    
+    <div class="cards" id="cards"></div>
+</body>
+<template id="temp_card">
+    <div class="card">
+        <div class="inv up"></div>
+        <h1 class="num">0</h1>
+    </div>
+</template>
+</html>
