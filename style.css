@@ -50,28 +50,28 @@ body {
 }
 
 [data-id="0"] {
-    background-image: url(/imgs/s24.jpg);
+    background-image: url(./imgs/s24.jpg);
 }
 [data-id="1"] {
-    background-image: url(/imgs/s27.jpg);
+    background-image: url(./imgs/s27.jpg);
 }
 [data-id="2"] {
-    background-image: url(/imgs/s30.jpg);
+    background-image: url(./imgs/s30.jpg);
 }
 [data-id="3"] {
-    background-image: url(/imgs/s34.jpg);
+    background-image: url(./imgs/s34.jpg);
 }
 [data-id="4"] {
-    background-image: url(/imgs/s57.jpg);
+    background-image: url(./imgs/s57.jpg);
 }
 [data-id="5"] {
-    background-image: url(/imgs/m23.jpg);
+    background-image: url(./imgs/m23.jpg);
 }
 [data-id="6"] {
-    background-image: url(/imgs/m29.jpg);
+    background-image: url(./imgs/m29.jpg);
 }
 [data-id="7"] {
-    background-image: url(/imgs/m31.jpeg);
+    background-image: url(./imgs/m31.jpeg);
 }
 .num {
     display: none;
