@@ -25,6 +25,7 @@ start.addEventListener('click', e => {
     
 })
 function game() {
+    let is = true;
     let temp;
     let mem = -1;
     let count = 0;
@@ -43,12 +44,13 @@ function game() {
         if(find(e.target.classList, "up") && count == 1) {
             mem = parseInt(e.target.parentNode.dataset.id);
             temp = e.target;
-        } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.dataset.id) == mem && count < 2) {
+        } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.dataset.id) == mem && count <= 2 && is) {
             e.target.remove();
             temp.remove();
             count = 0;   
             mem = -1;
         } else if (find(e.target.classList, "up") && count <= 2) {
+            is = false;
             setTimeout(add, 2000);
         }
         function add() {
@@ -59,6 +61,7 @@ function game() {
             count = 0;   
             mem = -1;
             temp = "";
+            is = true;
         }
     })
     
