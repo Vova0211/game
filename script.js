@@ -16,7 +16,6 @@ start.addEventListener('click', e => {
         for (let i = 0; i < value * 2; i++) {
             card = temp.content.cloneNode(true);
             card.querySelector('div').dataset.id = nums[i];
-            card.querySelector("h1").textContent = nums[i];
             place.appendChild(card);
         }
         game()
@@ -42,9 +41,9 @@ function game() {
     
     document.querySelector('body').addEventListener('click', e =>{
         if(find(e.target.classList, "up") && count == 1) {
-            mem = parseInt(e.target.parentNode.querySelector('h1').textContent);
+            mem = parseInt(e.target.parentNode.dataset.id);
             temp = e.target;
-        } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.querySelector('h1').textContent) == mem && count <= 2) {
+        } else if (find(e.target.classList, "up") && parseInt(e.target.parentNode.dataset.id) == mem && count <= 2) {
             e.target.remove();
             temp.remove();
             count = 0;   
