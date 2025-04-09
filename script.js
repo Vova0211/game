@@ -69,7 +69,7 @@ function game() {
 function time() {
     const timer = document.getElementById("time");
     timer.classList.remove("invs");
-    let time = count.value * 100;
+    let time = count.value * 10;
     timer.textContent = `Времени осталось: ${time}с`
     const stopp = setInterval(set, 1000);
     function set() {
