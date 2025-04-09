@@ -68,23 +68,18 @@ function time() {
     timer.classList.remove("invs");
     let time = count.value * 10;
     timer.textContent = `Времени осталось: ${time}с`
-    const stop_game = setInterval(isStop, 100);
     const stopp = setInterval(set, 1000);
     function set() {
         time--;
         timer.textContent = `Времени осталось: ${time}с`
         if (time <= 0) {
             clearInterval(stopp);
-            clearInterval(stop_game);
             alert("Время вышло!");
             count.value = "";
             location.reload();
         }
-    }
-    function isStop() {
         const l = document.getElementsByClassName("inv").length;
         if (l == 0) {
-            clearInterval(stop_game);
             clearInterval(stopp);
             alert("Поздравляю, вы прошли игру");
             count.value = "";
