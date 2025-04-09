@@ -15,6 +15,7 @@ start.addEventListener('click', e => {
     if(typeof value == "number" && value >= 1 && value <= 20) {
         for (let i = 0; i < value * 2; i++) {
             card = temp.content.cloneNode(true);
+            card.querySelector('div').dataset.id = nums[i];
             card.querySelector("h1").textContent = nums[i];
             place.appendChild(card);
         }
@@ -77,8 +78,8 @@ function time() {
             clearInterval(stopp);
             clearInterval(stop_game);
             alert("Время вышло!");
-            place.remove()
-            timer.classList.add("invs");
+            count.value = "";
+            location.reload();
         }
     }
     function isStop() {
@@ -87,8 +88,8 @@ function time() {
             clearInterval(stop_game);
             clearInterval(stopp);
             alert("Поздравляю, вы прошли игру");
-            place.remove()
-            timer.classList.add("invs");
+            count.value = "";
+            location.reload()
         }
     }
 }

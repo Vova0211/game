@@ -17,9 +17,13 @@
     width: 200px;
     height: 300px;
     position: relative;
-    box-shadow: 0 0 10px 2px;
+    box-shadow: 0 0 5px 2px;
     border-radius: 50px;
     cursor: pointer;
+    transform: rotateY(180deg);  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
 }
 .inv {
     background-color: purple;
@@ -38,4 +42,33 @@
 }
 body {
     background-color:rgba(255, 215, 0, 0.5);
+}
+.trns {
+    transform: rotateY(0);
+    transition: transform 1s;
+}
+
+[data-id="0"] {
+    background-image: url(/imgs/s24.jpg);
+}
+[data-id="1"] {
+    background-image: url(/imgs/s27.jpg);
+}
+[data-id="2"] {
+    background-image: url(/imgs/s30.jpg);
+}
+[data-id="3"] {
+    background-image: url(/imgs/s34.jpg);
+}
+[data-id="4"] {
+    background-image: url(/imgs/s57.jpg);
+}
+[data-id="5"] {
+    background-image: url(/imgs/m23.jpg);
+}
+[data-id="6"] {
+    background-image: url(/imgs/m29.jpg);
+}
+[data-id="7"] {
+    background-image: url(/imgs/m31.jpeg);
 }
