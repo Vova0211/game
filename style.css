@@ -24,7 +24,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
-    transition: transform 1s;
 
 }
 .inv {
@@ -47,6 +46,7 @@ body {
 }
 .trns {
     transform: rotateY(0);
+    transition: transform 1s;
 }
 
 [data-id="0"] {
