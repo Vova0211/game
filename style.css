@@ -72,3 +72,6 @@ body {
 [data-id="7"] {
     background-image: url(/imgs/m31.jpeg);
 }
+.num {
+    display: none;
+}

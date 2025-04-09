@@ -12,7 +12,7 @@ start.addEventListener('click', e => {
         nums.push(e);
     });
     nums = shuffle(nums);
-    if(typeof value == "number" && value >= 1 && value <= 20) {
+    if(typeof value == "number" && value >= 1 && value <= 8) {
         for (let i = 0; i < value * 2; i++) {
             card = temp.content.cloneNode(true);
             card.querySelector('div').dataset.id = nums[i];
